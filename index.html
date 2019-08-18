@@ -165,7 +165,7 @@
                 <div class="row placeholders">
 				
                     <div v-for="sites in infos" class="col-xs-6 col-sm-4 col-md-3 placeholder room-wrapper" data-site="Panda">
-                            <a :href="'http://api.26an.cn:2019/api/zb.php?url='+sites.address" target="_blank" class="room-box">
+                            <a :href="sites.address" target="_blank" class="room-box">
                                 <div class="imgShow">
                                     <div class="img-wrapper">
                                         <img class="lazy" v-lazy="sites.img">
