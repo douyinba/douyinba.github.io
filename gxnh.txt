@@ -24,3 +24,5 @@ rpm -qa | grep kernel
 reboot
 uname -r
 //请注意：更换内核成功后切勿使用yum install update命令更新系统，否则会安装最新版内核！
+
+https://shiyu.pro/time-line.html
