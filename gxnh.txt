@@ -1,0 +1,26 @@
+wget -c https://dl.lancdn.com/landian/tools/vm_check/vm_check.sh && bash vm_check.sh
+// 通过SSH连接服务器后执行上述命令即可显示你的服务器虚拟化架构是什么
+
+// 先更新下然后安装网络工具包（不论什么版本都必须安装工具包）
+
+yum install upgrade
+yum install net-tools
+
+// 如果你是 CentOS 6.x 版本请在SSH连接服务器后执行以下命令：
+
+rpm -ivh https://dl.lancdn.com/landian/Kernel/CentOS/6.x/kernel-firmware-2.6.32-504.3.3.el6.noarch.rpm
+rpm -ivh https://dl.lancdn.com/landian/Kernel/CentOS/6.x/kernel-2.6.32-504.3.3.el6.x86_64.rpm --force
+
+// 如果你是 CentOS 7.x 版本请在SSH连接服务器后执行以下命令：
+
+rpm -ivh https://dl.lancdn.com/landian/Kernel/CentOS/7.x/kernel-3.10.0-229.1.2.el7.x86_64.rpm --force
+
+//执行过程中可能会卡1~3分钟左右，请耐心等待
+//执行完成后请执行以下命令查看内核是否安装成功：
+//若安装成功则会在输出的所有内核版本里显示我们刚刚安装的2.6或者3.1版
+
+rpm -qa | grep kernel
+//如果已经显示安装成功则重启服务器然后再次查看是否正常：
+reboot
+uname -r
+//请注意：更换内核成功后切勿使用yum install update命令更新系统，否则会安装最新版内核！
